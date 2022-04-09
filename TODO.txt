@@ -1,0 +1,9 @@
+create database connection (mysql)
+create readme and include badges
+Readme me should contain database properties and connector
+check if you can use mysql in the cloud
+change default port address
+deploy to heroku
+
+
+
