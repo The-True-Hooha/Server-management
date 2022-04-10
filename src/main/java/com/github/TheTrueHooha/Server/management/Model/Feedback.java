@@ -20,12 +20,12 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
 public class Feedback {
 
-    protected String responseGiven;
-    protected String feedbackMessage;
-    protected LocalDateTime dateTimeStamp;
-    protected int apiStatusCode;
-    protected HttpStatus httpStatus;
+    protected String reasonGiven; //returns the message given after a request has been made successful or not
+    protected String feedbackMessage; //gives feedback for any request
+    protected LocalDateTime dateTimeStamp; //date and time of event
+    protected int apiStatusCode; //status code for any request
+    protected HttpStatus httpStatus; //the http status for any request
 
-    protected String devMessage;
-    protected Map<?,?> data;
+    protected String devMessage; //dev message
+    protected Map<?,?> data; //data given
 }
