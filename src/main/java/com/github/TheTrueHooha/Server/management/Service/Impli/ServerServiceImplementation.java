@@ -13,6 +13,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.transaction.Transactional;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.util.Collection;
 import java.util.Random;
 
@@ -75,7 +77,18 @@ public class ServerServiceImplementation implements ServerService {
     //TODO: download server pictures to set as the url
     private String setServerImageUrl() {
         String[] images = {""}; //TODO: array index should replace the server image names 5 images to download
-        return ServletUriComponentsBuilder.fromCurrentContextPath().path("servers/image/" + images[new Random().nextInt(5)]).toUriString();
+        return ServletUriComponentsBuilder.fromCurrentContextPath().path("/servers/image/" + images[new Random().nextInt(5)]).toUriString();
+    }
+
+    private boolean isServerReachable(String ipAddress, int port, int timeout){
+        try {
+            try(Socket socket = new Socket()){
+                socket.connect(new InetSocketAddress(ipAddress, port), timeout);
+            }
+            return true;
+        } catch (IOException e){
+            return false;
+        }
     }
 
 }

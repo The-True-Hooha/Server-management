@@ -3,7 +3,6 @@ package com.github.TheTrueHooha.Server.management.Model;
 //returns a response to the user for any request that is received to the server
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 import org.springframework.http.HttpStatus;
@@ -18,7 +17,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonInclude(NON_NULL)
 
 
-public class Feedback {
+public class APIFeedback {
 
     protected String reasonGiven; //returns the message given after a request has been made successful or not
     protected String feedbackMessage; //gives feedback for any request
