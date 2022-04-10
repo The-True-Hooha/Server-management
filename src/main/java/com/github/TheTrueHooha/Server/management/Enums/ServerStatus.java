@@ -3,8 +3,7 @@ package com.github.TheTrueHooha.Server.management.Enums;
 public enum ServerStatus {
 
     //indicating the server status
-    SERVER_RUNNING("SERVER_UP"),
-    SERVER_DOWN("SERVER_DOWN");
+    SERVER_RUNNING("SERVER_UP"), SERVER_DOWN("SERVER_DOWN");
 
     private final String status;
 

@@ -75,8 +75,7 @@ public class ServerServiceImplementation implements ServerService {
     //TODO: download server pictures to set as the url
     private String setServerImageUrl() {
         String[] images = {""}; //TODO: array index should replace the server image names 5 images to download
-        return ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("servers/image/" + images[new Random().nextInt(5)]).toUriString();
+        return ServletUriComponentsBuilder.fromCurrentContextPath().path("servers/image/" + images[new Random().nextInt(5)]).toUriString();
     }
 
 }

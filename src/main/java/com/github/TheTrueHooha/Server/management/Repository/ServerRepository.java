@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ServerRepository extends JpaRepository<Servers, Long> {
 
     //method tha finds the IP by its address
-    Servers findByIpAddress (String ipAddress);
+    Servers findByIpAddress(String ipAddress);
 
 }

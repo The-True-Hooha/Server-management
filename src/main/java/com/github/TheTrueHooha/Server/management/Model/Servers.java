@@ -16,13 +16,16 @@ import javax.validation.constraints.NotEmpty;
 public class Servers {
     //defining the parameters for the models server management
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(unique = false) @NotEmpty(message = "please input name of your server, can not be null")
+    @Column(unique = false)
+    @NotEmpty(message = "please input name of your server, can not be null")
     private String serverName;
 
-    @Column(unique = true) @NotEmpty(message = "please input IP_address, can not be null")
+    @Column(unique = true)
+    @NotEmpty(message = "please input IP_address, can not be null")
     private String ipAddress;
 
     private String memory;
