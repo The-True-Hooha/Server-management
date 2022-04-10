@@ -6,12 +6,17 @@ import com.github.TheTrueHooha.Server.management.Repository.ServerRepository;
 import com.github.TheTrueHooha.Server.management.Service.ServerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.transaction.Transactional;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Collection;
+import java.util.Random;
+
+import static java.lang.Boolean.TRUE;
 
 @RequiredArgsConstructor
 @Service
@@ -41,28 +46,37 @@ public class ServerServiceImplementation implements ServerService {
         return servers;
     }
 
+    //gets the list of all the servers
     @Override
     public Collection<Servers> listServers(int limit) {
-        return null;
+        log.info("fetching your list of servers");
+        return serverRepository.findAll(PageRequest.of(0, limit)).toList();
     }
 
     @Override
     public Servers getServers(Long id) {
-        return null;
+        log.info("fetching your server by id: {}", id);
+        return serverRepository.findById(id).get();
     }
 
     @Override
     public Servers updateServer(Servers servers) {
-        return null;
+        log.info("updating server: {}", servers.getServerName());
+        return serverRepository.save(servers);
     }
 
     @Override
     public Boolean deleteServer(Long id) {
-        return null;
+        log.info("deleting server with id: {]", id);
+        serverRepository.deleteById(id);
+        return TRUE;
     }
 
+    //TODO: download server pictures to set as the url
     private String setServerImageUrl() {
-        return null;
+        String[] images = {""}; //TODO: array index should replace the server image names 5 images to download
+        return ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("servers/image/" + images[new Random().nextInt(5)]).toUriString();
     }
 
 }
