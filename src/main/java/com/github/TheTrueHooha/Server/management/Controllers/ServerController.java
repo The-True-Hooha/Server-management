@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.Map;
 
 import static com.github.TheTrueHooha.Server.management.Enums.ServerStatus.*;
 import static java.time.LocalDateTime.*;
 import static org.springframework.http.HttpStatus.*;
+import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 
 @RestController
 @RequestMapping("/api/vi")
@@ -93,9 +96,8 @@ public class ServerController {
         );
     }
 
-    @
-    @GetMapping("/servers/image/{filename}")
-    public byte[] getServerByImage(@PathVariable("filename") String filename){
-        return
+    @GetMapping(path = "/servers/image/{filename}", produces = IMAGE_PNG_VALUE)
+    public byte[] getServerByImage(@PathVariable("filename") String filename) throws IOException {
+        return Files.readAllBytes(Paths.get(System.getProperty("user.home") + "Downloads/server/images/" + filename));
     }
 }
