@@ -17,7 +17,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonInclude(NON_NULL)
 
 
-public class APIFeedback {
+public class APIResponse {
 
     protected String reasonGiven; //returns the message given after a request has been made successful or not
     protected String feedbackMessage; //gives feedback for any request
