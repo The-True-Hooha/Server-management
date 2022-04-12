@@ -20,7 +20,7 @@ public class Servers {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(unique = false)
+    @Column
     @NotEmpty(message = "please input name of your server, can not be null")
     private String serverName;
 

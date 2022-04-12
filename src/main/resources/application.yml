@@ -1,18 +1,16 @@
 server:
   port: 8000
 
-
-#will add cloud datasource connection later
 spring:
-  datasource:
-    password: password
-    url: jdbc:mysql://localhost:3306/server-managementdb
-    username: root
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
+    datasource:
+      password: password
+      url: jdbc:mysql://localhost:3306/server_managementdb
+      username: root
+    jpa:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL80Dialect
-        format_sql: true
-    show-sql: true
+        ddl-auto: create
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+          format_sql: true
+      show-sql: true
