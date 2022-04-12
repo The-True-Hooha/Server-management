@@ -28,7 +28,7 @@ public class ServerManagementApplication {
 					"192.154.1.155",
 					"8gb ram",
 					"Enterprise",
-					"http://localhost:8000/api/vi/servers/image/server.png",
+					"http://localhost:8000/api/v1/servers/image/server.png",
 					SERVER_RUNNING
 			) );
 
